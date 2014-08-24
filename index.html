@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
+	<script type="text/javascript" src="scripts/knockout-3.2.0.js"></script>
+
+</head>
+<body>
+
+
+<section class="content clearfix">
+	<h1>Легкое использование существующих електронных документов (инструкций)</h1>
+	<div class="col-left">
+		<p class="title">Список литературы:</p>
+		 <ul class="list-book" data-bind="foreach: booksList">
+			<li>
+				<img src="assets/images/pdf_ico.png" alt="pdf">
+				<span data-bind="text: nameBook">
+				</span>
+				<label>
+					<input type="checkbox" data-bind="checked:buyBook">
+					<span class="for-checkbox" ></span>
+				</label>
+			</li>
+		</ul> 
+	</div>
+	<div class="col-right">
+		<p class="title">Отправка письма:</p>
+		<form>
+			<p class="tit">E-mail:</p>
+			<input type="text" value="" data-bind="value: userEmail">
+			<p class="tit">Тема:</p>
+			<input type="text" value="" data-bind="value: userTheme">
+			<p class="tit">Текст сообщения:</p>
+			<textarea data-bind="value: userText"></textarea>
+			<p class="tit">Я б купил:</p>
+			
+			<ul class="your-book-list" data-bind="foreach: booksList">
+				<li data-bind="visible:buyBook">
+					<span data-bind="text: nameBook">
+					</span>
+				</li>
+			</ul>
+			<input type="submit" value="Отправить" data-bind="click: addUserinfo">
+		</form>
+	</div>
+</section>
+
+<div class="popup" data-bind="visible:popupBlock">
+	<div class="popup-bg">&nbp;</div>
+	<div class="popup-cnt">
+		<div class="close-pp">&nbp;</div>
+		<p class="">E-mail: <strong data-bind="text: userEmail"></strong></p>
+		<p class="">Тема:<strong data-bind="text: userTheme"></strong></p>
+		<p class="">Текст сообщения: <span data-bind="text: userText"></span></p>
+		<p class="tit">Я б купил:</p>
+		<ul class="your-book-list" data-bind="foreach: booksList">
+			<li data-bind="visible:buyBook">
+				<span data-bind="text: nameBook">
+				</span>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+</body>
+	<script type="text/javascript" src="scripts/knockout.js"></script>
+</html>
