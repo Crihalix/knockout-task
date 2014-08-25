@@ -14,26 +14,28 @@ function booksObj(){
 			new Book('4. Описание решения для разработки HTML5- презентаций'),
 			new Book('5. Описание разработтанного инструмента CLM2CRM и его интеграция с salesforse.com (русский).'),
 			new Book('6. Описание разработтанного инструмента CLM2CRM и его интеграция с salesforse.com (english).')
-		]),
+		]);
 
-	userEmail = ko.observable(),
-	userTheme = ko.observable(),
-	userText = ko.observable(),
-	popupBlock = ko.observable(false)
+	userEmail = ko.observable();
+	userTheme = ko.observable();
+	userText = ko.observable();
+    booksList2 = ko.computed(function() {
+        var arrayBooksList = [];
+        booksList().forEach(function(checked){
+            if(checked.buyBook()){
+                arrayBooksList.push(checked);
+            }
+        });
+        return arrayBooksList;
+    });
 
+    this.isVisiblePopup = ko.observable(true);
+    this.showPopup = function(){
+        this.isVisiblePopup(false)
+    };
+    this.hidePopup = function(){
+        this.isVisiblePopup(true)
+    };
 };
 
-
-var submitButton = document.getElementById("submitButton");
-var popup = document.getElementById('popup');
-var close_pp = document.getElementById('close-pp');
-
-	submitButton.addEventListener("click", function(event) { 
-		event.preventDefault();
-		popup.style.display = 'block';
-	});
-	close_pp.addEventListener("click", function(event) {
-		popup.style.display = 'none';
-	});
-	
 ko.applyBindings(new booksObj());

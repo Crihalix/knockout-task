@@ -144,7 +144,7 @@ input[type="checkbox"]:checked+.for-checkbox:after{
 }
 
 
-#popup{
+.popup{
 	position:absolute;
 	left:0;
 	top:0;
@@ -185,7 +185,7 @@ input[type="checkbox"]:checked+.for-checkbox:after{
 .popup-cnt ul li{
 	margin:0 0 10px;
 }
-#close-pp{
+.close-pp{
 	width:25px;
 	height:25px;
 	border:1px solid #ccc;
@@ -199,6 +199,6 @@ input[type="checkbox"]:checked+.for-checkbox:after{
 	color:#000;
 	cursor:pointer;
 }
-#close-pp:hover{
+.close-pp:hover{
 	color:red;
 }
