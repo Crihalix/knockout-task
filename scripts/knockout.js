@@ -1,12 +1,13 @@
 
+
 function Book(nameBook) {
 	this.nameBook = nameBook;
 	this.buyBook = ko.observable(false);
-
 }
 
-var booksObj = {
-	booksList: ko.observableArray([
+	
+function booksObj(){
+	booksList = ko.observableArray([
 			new Book('1. О компании QAP INT.'),
 			new Book('2. Преймущества использования CLM- инструмента для Вашего бизнеса'),
 			new Book('3. Преспективы сотрудничества с QAP INT.'),
@@ -15,35 +16,24 @@ var booksObj = {
 			new Book('6. Описание разработтанного инструмента CLM2CRM и его интеграция с salesforse.com (english).')
 		]),
 
-	userEmail: ko.observable(),
-	userTheme: ko.observable(),
-	userText: ko.observable(),
-	popupBlock: ko.observable(false)
+	userEmail = ko.observable(),
+	userTheme = ko.observable(),
+	userText = ko.observable(),
+	popupBlock = ko.observable(false)
 
 };
 
-	booksObj.addUserinfo = function(){
-		booksObj.popupBlock = true;
-	}
 
+var submitButton = document.getElementById("submitButton");
+var popup = document.getElementById('popup');
+var close_pp = document.getElementById('close-pp');
 
-ko.applyBindings(booksObj);
-
-/*
-function AppViewModel() {
-	this.userEmail = ko.observable();
-	this.userTheme = ko.observable();
-	this.userText = ko.observable();
-
-	this.addUserinfo = function() {
-
-        var currentVal = this.userEmail();        // Read the current value
-        this.userEmail(currentVal.toUpperCase()); // Write back a modified value
-    };
-
-
-    
-}
-
-ko.applyBindings(new AppViewModel());
-*/
+	submitButton.addEventListener("click", function(event) { 
+		event.preventDefault();
+		popup.style.display = 'block';
+	});
+	close_pp.addEventListener("click", function(event) {
+		popup.style.display = 'none';
+	});
+	
+ko.applyBindings(new booksObj());

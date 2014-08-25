@@ -35,7 +35,7 @@
 			<input type="text" value="" data-bind="value: userTheme">
 			<p class="tit">Текст сообщения:</p>
 			<textarea data-bind="value: userText"></textarea>
-			<p class="tit">Я б купил:</p>
+			<p class="tit">Прикрепленные файлы:</p>
 			
 			<ul class="your-book-list" data-bind="foreach: booksList">
 				<li data-bind="visible:buyBook">
@@ -43,19 +43,19 @@
 					</span>
 				</li>
 			</ul>
-			<input type="submit" value="Отправить" data-bind="click: addUserinfo">
+			<input type="submit" value="Отправить" id="submitButton">
 		</form>
 	</div>
 </section>
 
-<div class="popup" data-bind="visible:popupBlock">
-	<div class="popup-bg">&nbp;</div>
+<div id="popup" data-bind="visible:popupBlock">
+	<div class="popup-bg">&nbsp;</div>
 	<div class="popup-cnt">
-		<div class="close-pp">&nbp;</div>
-		<p class="">E-mail: <strong data-bind="text: userEmail"></strong></p>
-		<p class="">Тема:<strong data-bind="text: userTheme"></strong></p>
-		<p class="">Текст сообщения: <span data-bind="text: userText"></span></p>
-		<p class="tit">Я б купил:</p>
+		<div id="close-pp">X</div>
+		<p>E-mail: <strong data-bind="text: userEmail"></strong></p>
+		<p>Тема: <strong data-bind="text: userTheme"></strong></p>
+		<p>Текст сообщения: <br><span data-bind="text: userText"></span></p>
+		<p class="tit">Прикрепленные файлы:</p>
 		<ul class="your-book-list" data-bind="foreach: booksList">
 			<li data-bind="visible:buyBook">
 				<span data-bind="text: nameBook">
